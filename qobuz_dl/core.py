@@ -37,7 +37,7 @@ class QobuzDL:
     def __init__(
         self,
         directory="Qobuz Downloads",
-        quality=6,
+        quality=27,
         embed_art=False,
         lucky_limit=1,
         lucky_type="album",
