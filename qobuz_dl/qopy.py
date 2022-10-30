@@ -54,21 +54,21 @@ class Client:
             params = {
                 "extra": "tracks",
                 "playlist_id": kwargs["id"],
-                "limit": 500,
+                "limit": 50000,
                 "offset": kwargs["offset"],
             }
         elif epoint == "artist/get":
             params = {
                 "app_id": self.id,
                 "artist_id": kwargs["id"],
-                "limit": 500,
+                "limit": 50000,
                 "offset": kwargs["offset"],
                 "extra": "albums",
             }
         elif epoint == "label/get":
             params = {
                 "label_id": kwargs["id"],
-                "limit": 500,
+                "limit": 50000,
                 "offset": kwargs["offset"],
                 "extra": "albums",
             }
@@ -139,11 +139,11 @@ class Client:
                 j = self.api_call(epoint, id=id, offset=offset, type=type)
             if offset == 0:
                 yield j
-                total = j[key] - 500
+                total = j[key] - 50000
             else:
                 yield j
-                total -= 500
-            offset += 500
+                total -= 50000
+            offset += 50000
 
     def get_album_meta(self, id):
         return self.api_call("album/get", id=id)
